@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.Scanner;
 
 public class Level_0 {
@@ -142,6 +143,43 @@ public class Level_0 {
             //     System.out.println(ch);
             // }
         }
+    }
+
+    //홀짝 구분하기
+    //자연수 n이 입력으로 주어졌을 때 만약 n이 짝수이면 "n is even"을, 
+    //홀수이면 "n is odd"를 출력하는 코드를 작성해 보세요.
+    public void oddeven(){
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+
+        if(n>=1 && n<=1000)
+        {
+            if(n%2==0){
+                System.out.println(n+" is even");
+            } else if(n%2==1)
+            {
+                System.out.println(n+" is odd");
+            }
+        }
+    }
+
+    //문자열 겹쳐쓰기
+    //쥰내 어려움.
+    public void solution() {
+        String answer = "";
+        String my_string= "He11oWor1d";
+        String overwrite_string = "LLOWORL";
+        int s = 2;
+
+        String a = my_string.substring(0,s);
+        String b = my_string.substring(s+overwrite_string.length());
+        
+        answer = a+overwrite_string+b;
+        System.out.println(answer);
+        // String aa = my_string.substring(s,s+overwrite_string.length());
+        // System.out.println(aa);
+        // answer = my_string.replaceAll(aa, overwrite_string);
+        // System.out.println(answer);
     }
 
 
