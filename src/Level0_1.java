@@ -1,10 +1,10 @@
 
 import java.util.Scanner;
 
-public class Level_0 {
+public class Level0_1 {
 
     //생성자
-    public Level_0 ()
+    public Level0_1 ()
     {
         //문자열안에 문자열
         // String str1="ppprrrogrammers";
@@ -60,12 +60,20 @@ public class Level_0 {
         // System.out.println(a);
 
         //조건 문자열
-        String ineq = "<";
-        String eq= "=";
-        int n=20;
-        int m=50;
-        int a = solution181934(ineq, eq, n, m);
-        System.out.println(a);
+        // String ineq = "<";
+        // String eq= "!";
+        // int n=20;
+        // int m=50;
+        // int a = solution181934(ineq, eq, n, m);
+        // System.out.println(a);
+
+        //flag에 따라 다른 값 반환하기
+        // int n=-4;
+        // int m=7;
+        // boolean bl = true;
+        // int a = solution181933(n, m, bl );
+        // System.out.println(a);
+
     }
 
     //////////////////////////////////////////////////////////////
@@ -427,10 +435,43 @@ public class Level_0 {
     }
 
     //조건 문자열
+    //쥰내 어려움.
     public int solution181934(String ineq, String eq, int n, int m) {
         int answer = 0;
+
+        if (eq.equals("=")) {
+            if (ineq.equals("<")) {
+                answer = (n<=m) ? 1:0; //m이 n보다 크다면, 1을 반환하고 아니라면 0을 반환한다.
+            }else {
+                answer = (n>=m) ? 1:0;
+            }
+        } else {
+            if (ineq.equals(">")) {
+                answer = (n>m)?1:0;
+            } else {
+                answer = (n<m) ? 1:0;
+            }
+        }
+        
         return answer;
     }
+
+    //flag에 따라 다른 값 반환하기
+    public int solution181933(int a, int b, boolean flag) {
+        int answer = 0;
+
+        if (flag == true) {
+            return a+b;
+        } else {
+            return a-b;
+        }
+        //my another answer
+        //flag값이 boolean으로 어차피 true/flase중 하나이니 == 는 생략해도 될 듯?!
+        // answer = (flag == true) ? a+b : a-b; 
+        // return answer;
+    }
+
+    
 
 
 
