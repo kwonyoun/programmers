@@ -1,4 +1,6 @@
 import java.sql.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Level0_2 {
 
@@ -42,7 +44,61 @@ public class Level0_2 {
         // System.out.println(solution(a, b));
 
         //수 조작하기 2
-        int[] a = {0, 1, 0, 10, 0, 1, 0, 10, 0, -1, -2, -1}	;
+        // int[] a = {0, 1, 0, 10, 0, 1, 0, 10, 0, -1, -2, -1}	;
+        // System.out.println(solution2(a));
+
+        //문자열을 정수로 변환하기
+        // String n = "10";
+        // System.out.println(solution(n));
+
+        //두 수의 나눗셈
+        // int aa= 7;
+        // int b=3;
+        // System.out.println(solution(aa, b));
+
+        // 배열의 평균값
+        // int[] a= {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        // System.out.println(solution120817(a));
+
+        //양꼬치
+        // int a =10;
+        // int b=3;
+        // System.out.println(solution120830(a, b));
+
+        //편지
+        // String a= "happy birthday!";
+        // System.out.println(solution120898(a));
+
+        //배열 뒤집기
+        // int[] answer = {1, 2, 3, 4, 5};
+        // System.out.println(solution120821(answer));
+
+        //배열 원소의 길이
+        // String[] answer = {"We", "are", "the", "world!"};
+        // System.out.println(solution120854(answer));
+
+        //최댓값 만들기 (1)
+        // int[] a = {0, 31, 24, 10, 1, 9};
+        // System.out.println(solution120847(a));
+
+        // 피자 나눠 먹기 (1)
+        // int n = 15;
+        // System.out.println(solution120814(n));
+
+        //배열 두배 만들기
+        // int[] numbers = {1, 2, 100, -99, 1, 2, 3};
+        // int[] a = solution120809(numbers);
+        // System.out.println(a);
+
+        //배열 자르기
+        int[] a = {1, 3, 5,1,5};
+        int num1 = 2;
+        int num2 =3;
+        int[] t = solution(a, num1, num2);
+        System.out.println(t);
+    
+        
+        
     }
 
     //코드 처리하기
@@ -210,6 +266,7 @@ public class Level0_2 {
         return n;
     }
 
+    //방법2
     // for(char ch : control.toCharArray()) {
     //     switch(ch) {
     //         case 'w': answer += 1; break;
@@ -221,9 +278,182 @@ public class Level0_2 {
     // }
 
     //수 조작하기 2
+    //못품
     public String solution2(int[] numLog) {
         String answer = "";
+
+        for(int i = 1; i < numLog.length; i++){
+            if(numLog[i] - numLog[i - 1] == 1)
+                answer += 'w';
+            else if(numLog[i] - numLog[i - 1] == -1)
+                answer += 's';
+            else if (numLog[i] - numLog[i - 1] == 10)
+                answer += 'd';
+            else
+                answer += 'a';
+        }
+        // for (int i : numLog) {
+            // if (numLog[i] == numLog[0] ) {
+            //     switch (i) {
+            //         case value:
+                        
+            //             break;
+                
+            //         default:
+            //             break;
+            //     }
+            // }
+        // }
+        
+        return answer;
+    }
+
+    //문자열을 정수로 변환하기
+    public int solution(String n_str) {
+        int answer = 0;
+        answer =  Integer.parseInt(n_str);        
+        return answer;
+    }
+
+    //두 수의 나눗셈
+    public int solution(int num1, int num2) {
+        int answer = 0;
+        double a = (double) num1/num2;
+        double b =   a*1000;
+        int c= (int) Math.floor(b);
+        answer = Integer.parseInt(String.valueOf(c));
+        return answer;
+    }
+
+    //짝수의 합
+    public int solution(int n) {
+        int answer = 0;
+        for(int i =2; i<=n; i=i+2)
+        {
+            answer +=i;
+        }
         return answer;
     }
     
+    // 배열의 평균값
+    public double solution120817(int[] numbers) {
+        double answer = 0;
+        for (int i = 0; i < numbers.length; i++) {
+            answer += numbers[i];
+        }
+
+        return answer/numbers.length;
+    }
+
+    // 양꼬치
+    public int solution120830(int n, int k) {
+        int answer = 0;
+        int a= n/10;
+        answer = 12000*n+2000*k-a*2000;    
+        return answer;
+    }
+
+    //편지
+    public int solution120898(String message) {
+        int answer = 0;
+        answer = message.length() *2;
+        return answer;
+    }
+
+    //배열 뒤집기
+    public int[] solution120821(int[] num_list) {
+
+        //example
+        // int[] answer = new int[num_list.length];
+        // int startIdx = 0;
+        // for(int i = num_list.length-1; i>=0; i--){
+        //     answer[startIdx] = num_list[i];
+        //     startIdx++;
+        // }
+
+        int[] answer = new int[num_list.length]; //같은 배열의 수를 만들겠다.
+
+        for(int i = 0; i < num_list.length; i++) {
+            answer[num_list.length - i - 1] = num_list[i];
+            System.out.println(answer[num_list.length - i - 1]);    
+        }
+        return answer;
+    }
+
+    //배열 원소의 길이
+    public int[] solution120854(String[] strlist) {
+        int[] answer = new int[strlist.length];
+        for (int i = 0; i < strlist.length; i++) {
+            answer[i] = strlist[i].length();
+        }
+        return answer;
+    }
+
+    //최댓값 만들기 (1)
+    public int solution120847(int[] numbers) {
+        int answer = 0;
+        // for (int i = 0; i < numbers.length; i++) {
+        //    Arrays.sort(numbers);
+        //    answer=numbers[numbers.length-1]*numbers[numbers.length-2];
+        // }
+        // return answer;
+
+        //example
+        for(int i=0; i<numbers.length-1;i++){ //배열 중 하나 빼고서 
+            for(int j=i+1; j<numbers.length; j++){ //배열 전체 중
+                // System.out.println(numbers[i]);
+                // answer = Math.max(answer,numbers[i]);
+                answer = Math.max(answer,numbers[i]*numbers[j]);
+            }
+        }
+        return answer;
+    }
+
+    // 피자 나눠 먹기 (1)
+    public int solution120814(int n) {
+        int answer = 0;
+
+        int pizza = n/7;
+        if (n%7 !=0) {
+            answer = pizza+1;
+        }else
+        {
+            answer = pizza;
+        }
+        return answer;
+
+        //example
+        // answer = (n%7==0) ? n/7 : n/7 + 1;
+        // return answer;
+    }
+
+    //배열 두배 만들기
+    public int[] solution120809(int[] numbers) {
+        //배열의 길이를 먼저 정해줘야 하는구나?
+        int[] answer = new int[numbers.length];
+        for (int i = 0; i < numbers.length; i++) {
+            answer[i] = numbers[i]*2;
+            System.out.println(answer[i]);
+        }
+        return answer;
+    }
+
+    //배열 자르기
+    public int[] solution(int[] numbers, int num1, int num2) {
+        int[] answer = new int[num2-num1 +1 ];
+        System.out.println(answer.length);
+        for (int i = 0; i < answer.length; i++) {
+            answer[i] = numbers[i+num1];
+            System.out.println(answer[i]);
+        }
+        return answer;
+
+        //example
+        // int[] answer = new int[num2 - num1 + 1];
+        // for (int i = num1; i <= num2; i++) {
+        //     answer[i -num1] = numbers[i];
+        // }
+        // return answer;
+    }
+
 }
