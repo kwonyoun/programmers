@@ -91,13 +91,28 @@ public class Level0_2 {
         // System.out.println(a);
 
         //배열 자르기
-        int[] a = {1, 3, 5,1,5};
-        int num1 = 2;
-        int num2 =3;
-        int[] t = solution(a, num1, num2);
-        System.out.println(t);
+        // int[] a = {1, 3, 5,1,5};
+        // int num1 = 2;
+        // int num2 =3;
+        // int[] t = solution(a, num1, num2);
+        // System.out.println(t);
     
+        //짝수 홀수 개수
+        // int[] answer = {1,2,3,4,5};
+        // int[] a = solution120824(answer);
+        // System.out.println(a);
+
+        // 서울에서 김서방 찾기
+        // String[] seoul = {"Jane", "Kim"};
+        // String answer = solution12919(seoul);
+        // System.out.println(answer);
         
+        //OX퀴즈
+        String[] a = {"3 - 4 = -3", "5 + 6 = 11"};
+        String[] rt = solution(a);
+        System.out.println(rt);
+
+
         
     }
 
@@ -456,4 +471,64 @@ public class Level0_2 {
         // return answer;
     }
 
+    //짝수 홀수 개수
+    public int[] solution120824(int[] num_list) {
+        int[] answer = new int[2];
+        for (int i = 0; i < num_list.length; i++) {
+            if (num_list[i]%2==0) {
+                answer[0]++;
+            } else if(num_list[i]%2==1)
+            {
+              answer[1]++;
+            }
+            
+        }
+        return answer;
+    }
+
+    // 서울에서 김서방 찾기
+    public String solution12919(String[] seoul) {
+        String answer = "";
+        for (int i = 0; i < seoul.length; i++) {
+            if (seoul[i].equals("Kim")) {
+                answer = "김서방은 "+ i+"에 있다";
+            }
+        }
+        return answer;
+
+        //"김서방은 1에 있다"
+    }
+
+    //
+    public int solution12931(int n) {
+        int answer = 0;
+
+        // [실행] 버튼을 누르면 출력 값을 볼 수 있습니다.
+        System.out.println("Hello Java");
+
+        return answer;
+    }
+
+    //OX퀴즈
+    public String[] solution(String[] quiz) {
+        String[] answer = new String[quiz.length];
+        String a="";
+        String plus="+";
+        String minus="-";
+        for (int i = 0; i < quiz.length; i++) {
+            a =quiz[0].replaceAll(" ", "");
+            // System.out.println(quiz[0].replaceAll(" ", ""));
+            // System.out.println(quiz[i]);
+            // answer= quiz[0].split("=",2);
+            // System.out.println(answer);
+            answer = a.split("=",2);
+            if(plus.equals("+"))
+            {
+                answer=a.split(plus,2);
+            }
+            
+            System.out.println(answer[1]);
+        }
+        return answer;
+    }
 }
