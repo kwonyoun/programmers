@@ -36,7 +36,7 @@ public class Level0_2 {
         //카운트 업
         // int a=3;
         // int b=10;
-        // System.out.println(solution2(a, b));
+        // System.out.println(solution181920(a, b));
 
         //수 조작하기 1
         // int a=0;
@@ -49,7 +49,9 @@ public class Level0_2 {
 
         //문자열을 정수로 변환하기
         // String n = "10";
-        // System.out.println(solution(n));
+        
+
+
 
         //두 수의 나눗셈
         // int aa= 7;
@@ -108,8 +110,20 @@ public class Level0_2 {
         // System.out.println(answer);
         
         //OX퀴즈
-        String[] a = {"3 - 4 = -3", "5 + 6 = 11"};
-        String[] rt = solution(a);
+        // String[] a = {"3 - 4 = -3", "5 + 6 = 11"};
+        // String[] rt = solution(a);
+        // System.out.println(rt);
+
+        //부분 문자열 이어 붙여 문자열 만들기
+        // String[] my_strings ={"progressive", "hamburger", "hammer", "ahocorasick"};
+        // int[][] parts = {{0, 4}, {1, 2}, {3, 5}, {7, 7}};
+        // String rt = solution(my_strings, parts);
+        // System.out.println(rt);
+
+        //문자열의 뒤의 n글자
+        String str = "ProgrammerS123";
+        int in = 11;
+        String rt = solution181910(str, in);
         System.out.println(rt);
 
 
@@ -510,6 +524,7 @@ public class Level0_2 {
     }
 
     //OX퀴즈
+    //못품
     public String[] solution(String[] quiz) {
         String[] answer = new String[quiz.length];
         String a="";
@@ -531,4 +546,38 @@ public class Level0_2 {
         }
         return answer;
     }
+
+    //카운트 업
+    public int[] solution181920(int start_num, int end_num) {
+        
+        int size = end_num - start_num +1; //배열의 크기 설정
+        int[] answer = new int[size]; //설정한 크기로 배열 만들기
+
+        for (int i = 0; i < answer.length; i++) {
+            answer[i] = start_num++;
+            System.out.println(answer[i]);
+        }
+        return answer;
+    }
+
+    //부분 문자열 이어 붙여 문자열 만들기
+    public String solution(String[] my_strings, int[][] parts) {
+        String answer = "";
+        for (int i = 0; i < my_strings.length; i++) {
+            String str = my_strings[i]; //my_strings의 배열 순서
+            answer += str.substring(parts[i][0],parts[i][1]+1);
+            //substring(시작 인덱스,종료 다음 인덱스); -> '종류다음인덱스' 때문에 +1을 한다. 
+            //0번째,
+        }
+        return answer;
+    }
+
+    //문자열의 뒤의 n글자
+    public String solution181910(String my_string, int n) {
+        String answer = "";
+        answer=my_string.substring(my_string.length()-n);
+        //substring(시작 인덱스); -> 시작인덱스부터 끝까지 출력됨.
+        return answer;
+    }
+
 }
