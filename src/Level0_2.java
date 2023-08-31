@@ -138,10 +138,30 @@ public class Level0_2 {
         // System.out.println(rt);
 
         //모음 제거
-        String st ="nice to meet you";
-        String rt = solution120849(st);
-        System.out.println(rt);
+        // String st ="nice to meet you";
+        // String rt = solution120849(st);
+        // System.out.println(rt);
 
+        //아이스 아메리카노
+        // int mn = 15500;
+        // int[] rt = solution120819(mn);
+        // System.out.println(rt);
+
+        //문자열 뒤집기
+        // String a = "nijnuoy";
+        // String rt = solution120822(a);
+        // System.out.println(rt);
+
+        //머쓱이보다 키 큰 사람
+        // int[] a={149, 180, 192, 170};
+        // int b= 167;
+        // int rt = solution(a, b);
+        // System.out.println(rt);
+
+        //순서쌍의 개수
+        int a=20;
+        int rt = solution120836(a);
+        System.out.println(rt);
         
     }
 
@@ -645,5 +665,59 @@ public class Level0_2 {
         
         return answer;
     }
+
+    //아이스 아메리카노
+    public int[] solution120819(int money) {
+        int[] answer = new int[2];
+        int ice = 5500;
+        int cnt = money/ice;
+        if (money%ice == 0) { 
+            answer[0]=cnt;
+            answer[1]=0;
+        } else {
+            answer[0]=cnt;
+            answer[1]=money%ice; 
+        }
+        //방법
+        // answer[0] = money/5500;
+        // answer[1] = money%5500;
+
+        return answer;
+    }
+
+    //문자열 뒤집기
+    public String solution120822(String my_string) {
+        String answer = "";
+        StringBuffer a = new StringBuffer(my_string);
+        answer=a.reverse().toString();
+        
+        return answer;
+    }
+
+    //머쓱이보다 키 큰 사람
+    public int solution(int[] array, int height) {
+        int answer = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] > height ) {
+                answer++;
+            }
+            
+        }
+        return answer;
+    }
+
+    //순서쌍의 개수
+    public int solution120836(int n) {
+        int answer = 0;
+        
+        for (int i = 1; i <= n; i++) {
+            if (n%i==0) {   
+                //약수의 갯수
+                answer++;
+            } 
+        }
+        return answer;
+    }
+
 
 }
