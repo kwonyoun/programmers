@@ -121,11 +121,26 @@ public class Level0_2 {
         // System.out.println(rt);
 
         //문자열의 뒤의 n글자
-        String str = "ProgrammerS123";
-        int in = 11;
-        String rt = solution181910(str, in);
-        System.out.println(rt);
+        // String str = "ProgrammerS123";
+        // int in = 11;
+        // String rt = solution181910(str, in);
+        // System.out.println(rt);
 
+        //문자열의 앞의 n글자
+        // String str = "ProgrammerS123";
+        // int in = 11;
+        // String rt = solution181910(str, in);
+        // System.out.println(rt);
+
+        //마지막 두 원소
+        // int[] num = {2, 1, 6};
+        // int[] rt = solution181927(num);
+        // System.out.println(rt);
+
+        //모음 제거
+        String st ="nice to meet you";
+        String rt = solution120849(st);
+        System.out.println(rt);
 
         
     }
@@ -577,6 +592,57 @@ public class Level0_2 {
         String answer = "";
         answer=my_string.substring(my_string.length()-n);
         //substring(시작 인덱스); -> 시작인덱스부터 끝까지 출력됨.
+        return answer;
+    }
+
+    //문자열의 앞의 n글자
+    public String solution181907(String my_string, int n) {
+        String answer = "";
+        answer=my_string.substring(0,n);
+        //substring(시작 인덱스); -> 시작인덱스부터 끝까지 출력됨.
+        return answer;
+    }
+
+    //마지막 두 원소
+    public int[] solution181927(int[] num_list) {
+        int size = num_list.length+1; //배열사이즈 설정
+        int[] answer = new int[size]; //배열 만들기
+        int p =0; //추가할 값 선언하기
+
+        //배열이니까 마지막 수는 '-1' 했다.
+        if ((num_list[num_list.length-1])>(num_list[num_list.length-2])) {
+            p = num_list[num_list.length-1]-num_list[num_list.length-2];
+        } else {
+            p = num_list[num_list.length-1]*2;
+        }
+        //num_list의 길이만큼 반복한다. 
+        for (int i = 0; i < num_list.length; i++) {  
+            //answer의 배열크기는 num_list보다 하나 크다. 그래서 마지막 하나가 남음.
+            //남은 자리를 위해서 설정한 p로 채운다. 
+            answer[i] = num_list[i];
+        }
+        //배열이니까 length에서 -1하기.
+        //answer 배열의 마지막 수 는 p로 설정한다. 
+        answer[answer.length - 1] = p;
+        
+        System.out.println("p"+p);
+        
+        return answer;
+    }
+
+    //모음 제거
+    public String solution120849(String my_string) {
+        String answer = "";
+        answer = my_string.replaceAll("[aeiou]", "");
+
+        //방법2
+        // String[] vowels = new String[]{"a", "e", "i", "o", "u"};
+        // for(String vowel : vowels){
+        //     if(my_string.contains(vowel)){
+        //         my_string = my_string.replace(vowel, "");
+        //     }
+        // }
+        
         return answer;
     }
 
