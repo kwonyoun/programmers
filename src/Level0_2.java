@@ -1,6 +1,7 @@
 import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Level0_2 {
 
@@ -159,8 +160,32 @@ public class Level0_2 {
         // System.out.println(rt);
 
         //순서쌍의 개수
-        int a=20;
-        int rt = solution120836(a);
+        // int a=20;
+        // int rt = solution120836(a);
+        // System.out.println(rt);
+
+        //접미사인지 확인하기
+        // String a = "banana";
+        // String b = "ana";
+        // int rt = solution181908(a, b);
+        // System.out.println(rt);
+
+        //9로 나눈 나머지
+        // String a = "123456";
+        // int rt = solution181914(a);
+        // System.out.println(rt);
+
+        //세로 읽기
+        // String a = "ihrhbakrfpndopljhygc";
+        // int b =4;
+        // int c=2;
+        // String rt = solution181904(a, b, c);
+        // System.out.println(rt);
+
+        //접두사인지 확인하기
+        String a="banana";
+        String b ="ban";
+        int rt = solution181906(a, b);
         System.out.println(rt);
         
     }
@@ -716,6 +741,70 @@ public class Level0_2 {
                 answer++;
             } 
         }
+        return answer;
+    }
+
+    //접미사인지 확인하기
+    public int solution181908(String my_string, String is_suffix) {
+        int answer = 0;
+        for (int i = 0; i < my_string.length(); i++) {
+            //substring으로 자리수를 늘려가며 string을 설정한다.
+            String b= my_string.substring(i);
+            //my_string에서 늘려나간 값이 입력받은 값 is_suffix와 같다면
+            if (b.equals(is_suffix)) {
+                System.out.println(b);
+                //1을 반환
+                answer=1;
+            }
+        }
+        return answer;
+    }
+
+    //9로 나눈 나머지
+    public int solution181914(String number) {
+        int answer = 0;
+        int sum=0;
+        String[] number_list = number.split("");
+        for (int j = 0; j < number_list.length; j++) {
+            int a = Integer.parseInt(number_list[j]);
+            sum += a;
+        }
+        answer =sum%9;
+        return answer;
+    }
+
+    //세로 읽기
+    public String solution181904(String my_string, int m, int c) {
+        String answer = "";
+        List<String> result = new ArrayList<>();
+        //한 줄에 있는 글자 수
+        for (int i = 0; i < my_string.length(); i += m) { //i=i+m;
+            String sub = my_string.substring(i, i + m);
+            result.add(sub);
+        }
+        for (String str : result) {
+            answer += str.substring(c-1, c);
+        }
+        return answer;
+    }
+
+    //접두사인지 확인하기
+    public int solution181906(String my_string, String is_prefix) {
+        int answer = 0;
+        for (int i = 0; i < my_string.length(); i++) {
+            //substring으로 자리수를 늘려가며 string을 설정한다.
+            String b= my_string.substring(0,i+1);
+            System.out.println(b);
+            //my_string에서 늘려나간 값이 입력받은 값 is_prefix 같다면
+            if (b.equals(is_prefix)) {
+                
+                //1을 반환
+                answer=1;
+            }
+        }
+
+        //방법2
+        // if (my_string.startsWith(is_prefix)) return 1;
         return answer;
     }
 
